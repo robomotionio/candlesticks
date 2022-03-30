@@ -1,4 +1,4 @@
-import 'package:candlesticks/src/theme/theme_data.dart';
+import 'package:candlestix/src/theme/theme_data.dart';
 import 'package:flutter/material.dart';
 
 /// Top toolbar button widget.

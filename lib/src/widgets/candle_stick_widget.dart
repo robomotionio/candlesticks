@@ -1,5 +1,5 @@
-import 'package:candlesticks/src/models/candle.dart';
-import 'package:candlesticks/src/models/candle_annotation.dart';
+import 'package:candlestix/src/models/candle.dart';
+import 'package:candlestix/src/models/candle_annotation.dart';
 import 'package:flutter/material.dart';
 import '../models/candle.dart';
 

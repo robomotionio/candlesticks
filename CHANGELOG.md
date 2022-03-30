@@ -1,3 +1,7 @@
+## [2.2.0] - Mar 30, 2022
+
+- [Feature] Triangular annotation support
+
 ## [2.1.0] - Feb 22, 2022
 
 - document correction

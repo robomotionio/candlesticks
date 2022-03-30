@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:candlesticks/candlesticks.dart';
+import 'package:candlestix/candlesticks.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Candlesticks(
             candles: candles,
+            annotations: [],
           ),
         ),
       ),

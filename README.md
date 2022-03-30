@@ -1,12 +1,12 @@
 # candlesticks
 
-[![pub package](https://img.shields.io/badge/pub-v2.0.1-orange.svg)](https://pub.dev/packages/candlesticks)
+[![pub package](https://img.shields.io/badge/pub-v2.0.1-orange.svg)](https://pub.dev/packages/candlestix)
 
 A high-performance full featured candlesticks chart for all platforms!
 
 web demo:</br>
 [Binance Candles](https://rmzy.dev/candlesticks/)</br>
-[Binance Candles Github Repository](https://github.com/r-mzy47/binance_candles)
+[Binance Candles Github Repository](https://github.com/robomotionio/candlesticks)
 
 ## Preview
 |IOS	|macOS		|
@@ -19,7 +19,7 @@ web demo:</br>
 
 ```yaml
 dependencies:
-  candlesticks: ^2.1.0
+  candlesticks: ^2.2.0
 ```
 
 2. Get the package using your IDE's GUI or via command line with
@@ -31,7 +31,7 @@ $ flutter pub get
 ## Usage
 
 ```dart
-import 'package:candlesticks/candlesticks.dart';
+import 'package:candlestix/candlestix.dart';
 ```
 
 ### Candle

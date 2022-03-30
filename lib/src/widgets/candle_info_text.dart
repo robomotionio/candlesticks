@@ -1,6 +1,6 @@
-import 'package:candlesticks/src/models/candle.dart';
-import 'package:candlesticks/src/theme/theme_data.dart';
-import 'package:candlesticks/src/utils/helper_functions.dart';
+import 'package:candlestix/src/models/candle.dart';
+import 'package:candlestix/src/theme/theme_data.dart';
+import 'package:candlestix/src/utils/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class CandleInfoText extends StatelessWidget {
