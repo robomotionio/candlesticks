@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:candlesticks/src/models/candle.dart';
+import 'package:candlesticks/src/models/candle_annotation.dart';
 import 'package:candlesticks/src/theme/theme_data.dart';
 import 'package:candlesticks/src/widgets/toolbar_action.dart';
 import 'package:candlesticks/src/widgets/mobile_chart.dart';
@@ -16,6 +17,7 @@ class Candlesticks extends StatefulWidget {
   /// The arrangement of the array should be such that
   ///  the newest item is in position 0
   final List<Candle> candles;
+  final List<Annotation?> annotations;
 
   /// this callback calls when the last candle gets visible
   final Future<void> Function()? onLoadMoreCandles;
@@ -28,6 +30,7 @@ class Candlesticks extends StatefulWidget {
     required this.candles,
     this.onLoadMoreCandles,
     this.actions = const [],
+    required this.annotations,
   }) : super(key: key);
 
   @override
@@ -86,6 +89,7 @@ class _CandlesticksState extends State<Candlesticks> {
                     Platform.isWindows ||
                     Platform.isLinux) {
                   return DesktopChart(
+                    annotations: widget.annotations,
                     onScaleUpdate: (double scale) {
                       scale = max(0.90, scale);
                       scale = min(1.1, scale);
@@ -125,6 +129,7 @@ class _CandlesticksState extends State<Candlesticks> {
                   );
                 } else {
                   return MobileChart(
+                    annotations: widget.annotations,
                     onScaleUpdate: (double scale) {
                       scale = max(0.90, scale);
                       scale = min(1.1, scale);

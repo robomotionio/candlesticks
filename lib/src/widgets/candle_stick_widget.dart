@@ -1,4 +1,5 @@
 import 'package:candlesticks/src/models/candle.dart';
+import 'package:candlesticks/src/models/candle_annotation.dart';
 import 'package:flutter/material.dart';
 import '../models/candle.dart';
 
@@ -10,6 +11,7 @@ class CandleStickWidget extends LeafRenderObjectWidget {
   final double low;
   final Color bullColor;
   final Color bearColor;
+  final List<Annotation?> annotations;
 
   CandleStickWidget({
     required this.candles,
@@ -19,6 +21,7 @@ class CandleStickWidget extends LeafRenderObjectWidget {
     required this.high,
     required this.bearColor,
     required this.bullColor,
+    required this.annotations,
   });
 
   @override
@@ -31,6 +34,7 @@ class CandleStickWidget extends LeafRenderObjectWidget {
       high,
       bullColor,
       bearColor,
+      annotations,
     );
   }
 
@@ -75,6 +79,7 @@ class CandleStickRenderObject extends RenderBox {
   late double _close;
   late Color _bullColor;
   late Color _bearColor;
+  late List<Annotation?> _annotations;
 
   CandleStickRenderObject(
     List<Candle> candles,
@@ -84,6 +89,7 @@ class CandleStickRenderObject extends RenderBox {
     double high,
     Color bullColor,
     Color bearColor,
+    List<Annotation?> annotations,
   ) {
     _candles = candles;
     _index = index;
@@ -92,6 +98,7 @@ class CandleStickRenderObject extends RenderBox {
     _high = high;
     _bearColor = bearColor;
     _bullColor = bullColor;
+    _annotations = annotations;
   }
 
   /// set size as large as possible
@@ -102,8 +109,19 @@ class CandleStickRenderObject extends RenderBox {
 
   /// draws a single candle
   void paintCandle(PaintingContext context, Offset offset, int index,
-      Candle candle, double range) {
+      Candle candle, Annotation? annotation, double range) {
     Color color = candle.isBull ? _bullColor : _bearColor;
+
+    final candleTop = Offset(
+      size.width + offset.dx - (index + 0.5) * _candleWidth,
+      offset.dy + (_high - candle.high) / range,
+    );
+
+    final len = (candle.high - candle.low) / range;
+
+    final candleBottom = Offset(candleTop.dx, candleTop.dy + len);
+
+    annotation?.paint(context, candleTop, candleBottom);
 
     Paint paint = Paint()
       ..color = color
@@ -144,7 +162,9 @@ class CandleStickRenderObject extends RenderBox {
     for (int i = 0; (i + 1) * _candleWidth < size.width; i++) {
       if (i + _index >= _candles.length || i + _index < 0) continue;
       var candle = _candles[i + _index];
-      paintCandle(context, offset, i, candle, range);
+      final annotation =
+          i + _index >= _annotations.length ? null : _annotations[i + _index];
+      paintCandle(context, offset, i, candle, annotation, range);
     }
     _close = _candles[0].close;
     context.canvas.save();
