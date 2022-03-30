@@ -1,6 +1,6 @@
 # candlesticks
 
-[![pub package](https://img.shields.io/badge/pub-v2.0.1-orange.svg)](https://pub.dev/packages/candlestix)
+[![pub package](https://img.shields.io/badge/pub-v2.2.1-orange.svg)](https://pub.dev/packages/candlestix)
 
 A high-performance full featured candlesticks chart for all platforms!
 

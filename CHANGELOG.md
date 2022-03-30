@@ -1,3 +1,7 @@
+## [2.2.1] - Mar 30, 2022
+
+- renaming the package
+
 ## [2.2.0] - Mar 30, 2022
 
 - [Feature] Triangular annotation support
